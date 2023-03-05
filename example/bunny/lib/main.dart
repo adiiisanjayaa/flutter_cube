@@ -85,10 +85,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                       max: 1.0,
                       divisions: 100,
                       onChanged: (value) {
-                        setState(() {
-                          _diffuse = value;
-                          _scene.light.setColor(Colors.white, _ambient, _diffuse, _specular);
-                        });
+                        if (mounted)
+                          setState(() {
+                            _diffuse = value;
+                            _scene.light.setColor(Colors.white, _ambient, _diffuse, _specular);
+                          });
                       },
                     ),
                   ),
@@ -106,10 +107,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                       max: 1.0,
                       divisions: 100,
                       onChanged: (value) {
-                        setState(() {
-                          _specular = value;
-                          _scene.light.setColor(Colors.white, _ambient, _diffuse, _specular);
-                        });
+                        if (mounted)
+                          setState(() {
+                            _specular = value;
+                            _scene.light.setColor(Colors.white, _ambient, _diffuse, _specular);
+                          });
                       },
                     ),
                   ),
@@ -127,10 +129,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                       max: 32.0,
                       divisions: 32,
                       onChanged: (value) {
-                        setState(() {
-                          _shininess = value;
-                          _bunny!.mesh.material.shininess = _shininess;
-                        });
+                        if (mounted)
+                          setState(() {
+                            _shininess = value;
+                            _bunny!.mesh.material.shininess = _shininess;
+                          });
                       },
                     ),
                   ),
